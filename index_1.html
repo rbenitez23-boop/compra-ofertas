@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Compra Ofertas</title>
+<meta name="description" content="Ofertas de Mercado Libre revisadas: precio, descuento y vendedor.">
+<style>
+:root{--bg:#0f1b2d;--card:#16263d;--line:#243a59;--fg:#fff;--fg2:#c4cfdf;--fg3:#8fa1ba;--accent:#ff5a36;--ink:#0f1b2d}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:560px;margin:0 auto;padding:24px 16px 48px;display:flex;flex-direction:column;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.05em;font-size:15px}
+.brand i{width:16px;height:16px;border-radius:5px;background:var(--accent);display:block}
+h1{margin:6px 0 0;font-size:30px;line-height:1.1;font-weight:900}
+h1 em{font-style:normal;color:var(--accent)}
+.sub{color:var(--fg2);font-size:15px;line-height:1.45;margin:0}
+.search{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--fg);font-size:16px}
+.count{color:var(--fg3);font-size:13px}
+.list{display:flex;flex-direction:column;gap:12px}
+.o{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:grid;grid-template-columns:120px 1fr}
+.o .ph{background:#f6f4f0;display:flex;align-items:center;justify-content:center;position:relative;min-height:130px}
+.o .ph img{width:100%;height:100%;object-fit:contain;padding:8px}
+.o .ph .pct{position:absolute;top:8px;left:8px;background:var(--accent);color:#fff;font-weight:900;font-size:13px;padding:3px 7px;border-radius:7px}
+.o .bd{padding:12px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.o h2{margin:0;font-size:15px;line-height:1.3;font-weight:700}
+.num{color:var(--accent);font-weight:900;margin-right:4px}
+.price{display:flex;gap:8px;align-items:baseline}.now{font-size:22px;font-weight:900}.was{color:var(--fg3);text-decoration:line-through;font-size:13px}
+.meta{color:var(--fg3);font-size:12px;line-height:1.35}
+.btn{display:block;text-align:center;background:var(--accent);color:var(--ink);font-weight:800;padding:10px;border-radius:10px;text-decoration:none;margin-top:auto}
+.empty{background:var(--card);border:1px dashed var(--line);border-radius:14px;padding:22px;text-align:center;color:var(--fg2)}
+.note{color:var(--fg3);font-size:12px;line-height:1.5}
+.hl{outline:3px solid var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand"><i></i>COMPRA OFERTAS</div>
+  <h1>Ofertas que <em>sí</em> valen la pena</h1>
+  <p class="sub">¿Viste una oferta en Instagram o TikTok? Escribe su número aquí abajo y toca "Ver oferta".</p>
+  <input class="search" id="q" type="search" inputmode="numeric" placeholder="Busca el número, ej. 4" aria-label="Buscar oferta por número">
+  <span class="count" id="count"></span>
+  <div class="list" id="list"><div class="empty">Cargando ofertas…</div></div>
+  <p class="note">Algunos enlaces son de afiliado: si compras, recibimos una pequeña comisión sin que pagues más. Los precios pueden cambiar; revisa el precio final antes de pagar.</p>
+</div>
+<script>
+(function(){
+  var esc=function(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})};
+  var fmt=function(n){return "$"+Math.round(+n||0).toLocaleString("es-MX")};
+  var M=["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
+  var all=[];
+  function render(f){
+    var list=document.getElementById("list");
+    var of=all.filter(function(o){return !f||String(o.num)===f||String(o.titulo).toLowerCase().indexOf(f.toLowerCase())>=0});
+    if(!of.length){list.innerHTML='<div class="empty">'+(f?'No encontramos la #'+esc(f)+'. Puede que ya haya terminado.':'Las ofertas llegan muy pronto.')+'</div>';return}
+    list.innerHTML=of.map(function(o){
+      var pct=o.antes&&o.ahora?Math.round((1-o.ahora/o.antes)*100):0;
+      return '<article class="o" id="o'+esc(o.num)+'"><div class="ph">'+(o.foto?'<img loading="lazy" referrerpolicy="no-referrer" src="'+esc(o.foto)+'" alt="'+esc(o.titulo)+'">':'')+(pct>0?'<span class="pct">-'+pct+'%</span>':'')+'</div>'+
+        '<div class="bd"><h2><span class="num">#'+esc(o.num)+'</span>'+esc(o.titulo)+'</h2>'+
+        '<div class="price"><span class="now">'+fmt(o.ahora)+'</span>'+(o.antes?'<span class="was">'+fmt(o.antes)+'</span>':'')+'</div>'+
+        (o.nota?'<div class="meta">'+esc(o.nota)+'</div>':'')+
+        '<a class="btn" href="'+esc(o.url)+'" target="_blank" rel="noopener sponsored">Ver oferta</a></div></article>'}).join("");
+  }
+  fetch("ofertas.json?v="+Date.now()).then(function(r){return r.json()}).then(function(d){
+    all=(d.ofertas||[]).filter(function(o){return o&&/^https:\/\//.test(o.url||"")});
+    var p=(d.actualizado||"").split("-");
+    document.getElementById("count").textContent=all.length+" ofertas activas"+(p.length===3?" · actualizado "+(+p[2])+" "+M[+p[1]-1]:"");
+    var h=(location.hash||"").replace("#","");
+    if(h){document.getElementById("q").value=h;render(h)}else render("");
+  }).catch(function(){document.getElementById("list").innerHTML='<div class="empty">No se pudieron cargar las ofertas. Intenta de nuevo en un momento.</div>'});
+  document.getElementById("q").addEventListener("input",function(e){render(e.target.value.trim().replace("#",""))});
+})();
+</script>
+</body>
+</html>
