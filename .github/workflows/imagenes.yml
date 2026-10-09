@@ -1,0 +1,29 @@
+name: Generar imagenes
+on:
+  push:
+    paths: ["ofertas.json", "generar.py"]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  imagenes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Instalar
+        run: |
+          sudo apt-get update && sudo apt-get install -y fonts-inter fonts-noto-color-emoji
+          pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Generar
+        run: python generar.py
+      - name: Guardar imagenes
+        run: |
+          git config user.name "compra-ofertas-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add img
+          git diff --cached --quiet || (git commit -m "Imagenes nuevas" && git push)
+ 
