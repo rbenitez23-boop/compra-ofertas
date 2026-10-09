@@ -1,7 +1,43 @@
 {
  "actualizado": "2026-10-08",
- "siguiente": 5,
+ "siguiente": 9,
  "ofertas": [
+  {
+   "num": 5,
+   "titulo": "Recipientes herméticos de cocina 12 pz",
+   "ahora": 189,
+   "antes": 498,
+   "nota": "Pa' la alacena · calificación 4.8 · +50 mil vendidos · precio visto el 8 oct",
+   "url": "https://meli.la/11EqZPK",
+   "foto": "https://http2.mlstatic.com/D_NQ_NP_2X_778976-MLA111876334416_062026-F.jpg"
+  },
+  {
+   "num": 6,
+   "titulo": "Audífonos Bluetooth 1HORA AUT205",
+   "ahora": 194,
+   "antes": 338,
+   "nota": "Bluetooth 6.0 con micrófono · calificación 4.7 · +250 mil vendidos · precio visto el 8 oct",
+   "url": "https://meli.la/2Gmn2Wj",
+   "foto": "https://http2.mlstatic.com/D_NQ_NP_2X_725168-MLA100077728739_122025-F.jpg"
+  },
+  {
+   "num": 7,
+   "titulo": "La Roche-Posay Anthelios FPS 50+ con color",
+   "ahora": 379.82,
+   "antes": 699,
+   "nota": "Gel-crema matificante 50 ml, piel grasa · calificación 4.9 · +100 mil vendidos · precio visto el 8 oct",
+   "url": "https://meli.la/1dLmjCN",
+   "foto": "https://http2.mlstatic.com/D_NQ_NP_2X_742340-MLA99450208580_112025-F.jpg"
+  },
+  {
+   "num": 8,
+   "titulo": "Regadera tipo lluvia de acero con tubo",
+   "ahora": 121.7,
+   "antes": 250,
+   "nota": "Incluye tubo de 30 cm · calificación 4.7 · +250 mil vendidos · precio visto el 8 oct",
+   "url": "https://meli.la/2LubAJT",
+   "foto": "https://http2.mlstatic.com/D_NQ_NP_2X_804156-MLA99598161400_122025-F.jpg"
+  },
   {
    "num": 4,
    "titulo": "Base 4 en 1 SPF 50 + corrector, tono adaptable",
