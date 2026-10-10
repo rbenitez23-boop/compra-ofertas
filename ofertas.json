@@ -1,7 +1,43 @@
 {
- "actualizado": "2026-10-08",
- "siguiente": 9,
+ "actualizado": "2026-10-09",
+ "siguiente": 13,
  "ofertas": [
+  {
+   "num": 9,
+   "titulo": "Taladro rotomartillo inalámbrico, 2 baterías",
+   "ahora": 261.6,
+   "antes": 638.05,
+   "nota": "Kit con 2 baterías · calificación 4.7 · +50 mil vendidos · precio visto el 9 oct",
+   "url": "https://meli.la/1bfMEuf",
+   "foto": "https://http2.mlstatic.com/D_NQ_NP_2X_883803-MLA112628194468_062026-F.jpg"
+  },
+  {
+   "num": 10,
+   "titulo": "Mesa plegable Styrka tipo portafolio 1.80 m",
+   "ahora": 698,
+   "antes": 1590,
+   "nota": "Pa' las posadas y reuniones · calificación 4.6 · +100 mil vendidos · precio visto el 9 oct",
+   "url": "https://meli.la/1n9VZY5",
+   "foto": "https://http2.mlstatic.com/D_NQ_NP_2X_720158-MLA99917086715_112025-F.jpg"
+  },
+  {
+   "num": 11,
+   "titulo": "Cortinas blackout 214x160 cm, 2 piezas",
+   "ahora": 170.86,
+   "antes": 301.76,
+   "nota": "Pa' recámara o sala · calificación 4.7 · +50 mil vendidos · precio visto el 9 oct",
+   "url": "https://meli.la/2EfztVe",
+   "foto": "https://http2.mlstatic.com/D_NQ_NP_2X_686756-CBT117510445895_092026-F.jpg"
+  },
+  {
+   "num": 12,
+   "titulo": "Kit Garnier Express Aclara: gel, sérum, crema",
+   "ahora": 393,
+   "antes": 665,
+   "nota": "Anti imperfecciones · calificación 4.9 · +100 mil vendidos · precio visto el 9 oct",
+   "url": "https://meli.la/1zA3Zxk",
+   "foto": "https://http2.mlstatic.com/D_NQ_NP_2X_782568-MLU79241068221_092024-F.jpg"
+  },
   {
    "num": 5,
    "titulo": "Recipientes herméticos de cocina 12 pz",
@@ -54,7 +90,7 @@
    "antes": 626.29,
    "nota": "Portátil, para lavar el coche · calificación 4.7 · +250 mil vendidos · precio visto el 8 oct",
    "url": "https://meli.la/1EhM9ng",
-   "foto": ""
+   "foto": "https://http2.mlstatic.com/D_NQ_NP_2X_915645-MLA118968220969_102026-F.jpg"
   },
   {
    "num": 2,
@@ -63,7 +99,7 @@
    "antes": 599,
    "nota": "Piel mixta a grasa · calificación 4.8 · +1 millón vendidos · precio visto el 8 oct",
    "url": "https://meli.la/2zSYsLx",
-   "foto": ""
+   "foto": "https://http2.mlstatic.com/D_NQ_NP_2X_881917-MLU77762159963_072024-F.jpg"
   },
   {
    "num": 1,
@@ -72,7 +108,7 @@
    "antes": 499.6,
    "nota": "Calificación 4.7 · +500 mil vendidos · precio visto el 8 oct",
    "url": "https://meli.la/2d41bTT",
-   "foto": ""
+   "foto": "https://http2.mlstatic.com/D_NQ_NP_2X_861162-MLA118250929915_092026-F.jpg"
   }
  ]
 }
